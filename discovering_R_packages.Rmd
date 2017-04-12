@@ -1,0 +1,63 @@
+---
+title: "Discovering R Packages"
+author: "Miles McBain"
+date: "April 12, 2017"
+output:
+  ioslides_presentation:
+    css: ./style.css
+---
+#News
+
+##Brisbane is doing cool stuff!
+* https://twitter.com/_R_Foundation/status/851740634914357248
+* BURGr R Unconference 
+    - [datascikit](https://github.com/AU-BURGr/datascikit)
+    - [ozdata](https://github.com/AU-BURGr/ozdata)
+    - [eechidna v2](https://github.com/ropenscilabs/eechidna)
+
+#Finding R Packages
+
+## 2 Scenarios
+1. You have a specific task in mind. Find the thing that does the thing.
+2. You want to keep up with the lastest and greatest developements so you can impress your friends. (R as a sport)
+
+
+##Finding the thing
+* [CRAN Task Views](https://cran.r-project.org/web/views/)
+    -R packages by analysis category. Not bleeding edge stuff, but mostly reliable.
+* [R Bloggers Search](https://www.r-bloggers.com/search/Plot+food+data/)
+* [Ask the Audience (#rstats)](https://twitter.com/nj_tierney/status/851753765434646528)
+* Ask the experts
+    - People here
+    - People on various slack groups
+    - [burgr.slack.com](https://burgr.slack.com/shared_invite/MTY4MTc1NTQ2NTY1LTE0OTE5Nzk1NDktNDRhZWJkZDA4Yg) (Created 4:46pm today)
+  
+## Winning at R
+* [R weekly](https://rweekly.org/#get-)
+    - [rweekly_org](https://twitter.com/rweekly_org)
+    - [rweekly_live](https://twitter.com/rweekly_live)
+* [R Views](https://rviews.rstudio.com/)
+* [CRANberries Feed](https://twitter.com/cranberriesfeed?lang=en)
+* Following people on [Github](https://github.com/):
+    - [njtierney](https://github.com/njtierney), [jonocarroll](https://github.com/jonocarroll), [maelle](https://github.com/maelle), [krlmr](https://github.com/krlmlr), [jennybc](https://github.com/jennybc), [hadley](https://github.com/hadley), [hrbrmstr](https://github.com/hrbrmstr).
+* Following people on Twitter:
+    - [Mara Averick](https://twitter.com/dataandme), [David Robinson](https://twitter.com/drob), [Thomas Lin Pedersen](https://twitter.com/thomasp85), [David Smith](https://twitter.com/revodavid)
+* [RPackages.io](https://www.rpackages.io/)
+
+## Playing around with R package stats
+```{r, eval = FALSE}
+library(cranlogs)
+#Get a list of daily CRAN downloads
+pack_list = c("tibble", "rcpp")
+min_date = as.Date("2010-01-01")
+crandl <- cran_downloads(pack_list, 
+                         from = min_date,
+                         to = as.character(Sys.Date()))
+```
+
+**Challenge**: Make a list of your favourite packages and make a visualisation of their downloads.
+
+**Expert Challege**: Make a graph of their reverse depenencies using `devtools::revdep`
+
+* Try [this code for an example](https://github.com/acrossthetidyverse/tidycast/blob/master/code/get_dependencies.R)
+
